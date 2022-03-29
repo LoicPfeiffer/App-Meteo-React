@@ -5,7 +5,7 @@ import Weather from "./components/Weather";
 export default function App(probs) {
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(undefined);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +28,7 @@ export default function App(probs) {
 
   return (
     <div className="App">
-      {typeof data.city != "undefined" ? (
+      {typeof data != "undefined" ? (
         <Weather weatherData={data} />
       ) : (
         /*<div>{JSON.stringify(data.city.name, undefined, true)}</div>*/
